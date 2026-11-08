@@ -2,34 +2,40 @@
 
 Python-generated, 16:9 presentation visuals for the CEDA/CX debate on whether local governments should operate selected public libraries as overnight heat shelters during heatwaves.
 
-## What's included
+## Repository contents
 
-- Seven 1920×1080 PNG visual aids
-- Seven-page combined PDF
-- Contact-sheet preview
-- Reproducible Python source using pandas, NumPy, Matplotlib, seaborn and Pillow
-- CSV source bundle transcribed from cited public reports and published research estimates
+- Seven 1920×1080 PNG visual aids in `visuals/`
+- Seven-page combined PDF: `debate_heat_visual_aids.pdf`
+- Contact-sheet preview: `contact_sheet.png`
+- Reproducible Python source: `make_visuals.py`
+- Published aggregate data tables and source notes in `data/`
+- GitHub Actions workflow that rebuilds and commits the outputs when source files change
+
+## Visuals
+
+| # | File | Debate placement |
+|---|---|---|
+| 01 | [KDCA: home occurrence and older adults](visuals/01_KDCA_home_and_older_adults.png) | First speaker — accessibility |
+| 02 | [GeoHealth forest plot](visuals/02_GeoHealth_forest_plot.png) | First speaker — compound heatwaves |
+| 03 | [Seoul library hours timeline](visuals/03_Seoul_library_hours_timeline.png) | First speaker — operating hours |
+| 04 | [Seoul targeted heat protection](visuals/04_Seoul_targeted_protection_dashboard.png) | Second speaker — existing measures |
+| 05 | [Cooling-centre evidence gap](visuals/05_Dearman_evidence_gap.png) | Second speaker — quality of evidence |
+| 06 | [Accessibility chain](visuals/06_Accessibility_chain.png) | First speaker — conceptual framework |
+| 07 | [Three-question team summary](visuals/07_Three_question_summary.png) | Shared closing visual |
+
+Preview: [contact_sheet.png](contact_sheet.png)  
+Combined presentation: [debate_heat_visual_aids.pdf](debate_heat_visual_aids.pdf)
 
 ## Rebuild locally
 
-Install Python 3.10+ and dependencies:
+Use Python 3.10 or newer:
 
 ```bash
 pip install -r requirements.txt
 python make_visuals.py
 ```
 
-The script extracts the CSV archive in `data/`, then regenerates the PNGs, PDF and contact sheet.
-
-## Visual index
-
-1. KDCA: home-based heat-illness cases and older adults
-2. GeoHealth: forest plot of daytime, nighttime and compound heatwave odds ratios
-3. Seoul public-library extended-hours timeline
-4. Seoul 2026 targeted heat-protection programmes
-5. Cooling-centre systematic-review evidence gap
-6. Accessibility chain (conceptual team framework)
-7. Three-question team summary
+The script reads the CSV inputs already stored in `data/` and regenerates the seven PNGs, PDF and contact sheet.
 
 ## Data and interpretation cautions
 
@@ -41,7 +47,7 @@ The script extracts the CSV archive in `data/`, then regenerates the PNGs, PDF a
 - The Dearman review's absence of real-world cooling-centre health-outcome studies is an evidence gap, not proof that cooling centres are ineffective.
 - The accessibility chain and final summary are conceptual presentation frameworks, not measured datasets.
 
-See `data/README.txt` for full source descriptions and limitations.
+See [data/README.md](data/README.md) for full source descriptions and limitations.
 
 ## Sources
 
