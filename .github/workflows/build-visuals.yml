@@ -10,6 +10,10 @@ on:
       - ".github/workflows/build-visuals.yml"
   workflow_dispatch:
 
+concurrency:
+  group: build-visual-aids-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -49,5 +53,6 @@ jobs:
             echo "No generated visual changes to commit."
           else
             git commit -m "Build debate visual aids"
+            git pull --rebase origin main
             git push
           fi
